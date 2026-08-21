@@ -883,6 +883,25 @@ narrative experiment, not a standardized benchmark.\
 \*\* Privacy/Data Protection modules were implemented, but full runtime
 integration must be reverified before publication.
 
+### Public E2E Demo and Runtime Evidence
+
+The following public artifacts provide demonstration recordings and sanitized runtime evidence for major MSMA execution paths.
+
+#### Tool System
+
+- [Demo Video](demos/MSMA_Tool_System_Demo.mp4)
+- [Runtime Evidence](evidence/MSMA_Tool_System_Public_Evidence.txt)
+
+#### Self Expansion
+
+- [Demo Video](demos/MSMA_Self_Expansion_Demo.mp4)
+- [Runtime Evidence](evidence/MSMA_Self_Expansion_Public_Evidence.txt)
+
+#### Controlled Self Improvement
+
+- [Demo Video](demos/MSMA_Self_Improvement_Demo.mp4)
+- [Runtime Evidence](evidence/MSMA_Self_Improvement_Public_Evidence.txt)
+
 ### Memory Evidence Snapshot
 
   Metric                                              Result

@@ -904,6 +904,10 @@ The following public artifacts provide demonstration recordings and sanitized ru
 
 ### Memory Evidence Snapshot
 
+Public evidence: [MSMA Memory System — Public Evidence](evidence/MSMA_Memory_Public_Evidence.txt)
+
+The public evidence summarizes the long-context narrative experiment, recall behavior, unsupported-event rejection, insufficient-information handling, and the observed character-count reduction.
+
   Metric                                              Result
   ------------------------------------ ---------------------
   Original narrative                      194,956 characters

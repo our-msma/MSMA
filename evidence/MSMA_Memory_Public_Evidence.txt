@@ -1,0 +1,305 @@
+MSMA MEMORY SYSTEM — PUBLIC EVIDENCE
+
+Purpose
+
+This document is a sanitized public evidence summary of an internal
+long-context narrative experiment used to evaluate the MSMA Memory
+System.
+
+The experiment was designed to examine whether a layered external memory
+architecture could preserve useful narrative continuity while reducing
+the amount of source text that must be supplied directly to the model.
+
+This was an internal functional experiment, not a standardized
+benchmark. No claim of universal performance or a fixed
+hallucination-reduction rate is made.
+
+============================================================ 1. TEST
+MATERIAL ============================================================
+
+Test domain: Long-form Korean martial-arts / historical fantasy
+narrative
+
+Source span: 50 episodes
+
+Source size: Approximately 195,000 Korean characters including spaces
+(historical test measurement)
+
+Memory supplied to the model consisted of layered summaries and
+structured narrative information rather than the complete source text.
+
+Observed memory material included approximately:
+
+    Long-Term Memory:
+        about 900–1,300 characters
+
+    Mid-Term Memory:
+        about 2,500 characters
+
+    Short-Term Memory:
+        about 2,000 characters
+
+Additional structured information included character/world-setting
+material and relationship/state/lore-oriented narrative memory.
+
+The exact sizes above describe this test material only and are not
+architectural limits of MSMA.
+
+============================================================ 2. MEMORY
+REPRESENTATION USED IN THE TEST
+============================================================
+
+The test material demonstrates multiple levels of retained information.
+
+Long-Term / Semantic Narrative Memory included:
+
+    - narrative progression
+    - character state changes
+    - important relationships
+    - world/lore information
+
+Examples of retained high-level facts included:
+
+    - the protagonist's progression from survivor to war hero
+    - changes in his martial-arts training state
+    - relationships with major characters
+    - conflict with established aristocratic forces
+    - important world-setting elements connected to the narrative
+
+Mid-Term Memory preserved more detailed episode-level developments,
+including:
+
+    - political and interpersonal conflict
+    - training progression
+    - important character movements
+    - injuries and state changes
+    - transitions between major narrative situations
+
+The test therefore did not rely on a single flat summary.
+
+============================================================ 3. RECALL
+QUESTIONS ============================================================
+
+Recall questions were used to test different types of narrative
+retrieval.
+
+The public test set included questions such as:
+
+    1. Why did Yangchun and Gaegum become hostile toward each other?
+
+    2. Why did Yangchun and Jwadan take different paths within the organization?
+
+    3. Why did Yangchun train while imprisoned?
+
+    4. What level had Yangchun's internal-energy training reached?
+
+Two additional questions were deliberately useful for checking
+unsupported recall behavior:
+
+    5. Why did Yangchun defect to Baekje?
+
+    6. In which specific battle did Jwadan lose his arm?
+
+============================================================ 4. OBSERVED
+RECALL BEHAVIOR
+============================================================
+
+The memory-based responses demonstrated retrieval of several different
+information types.
+
+A. Relationship recall
+
+The system retrieved the long-running conflict between Yangchun and
+Gaegum, including social-status conflict, political rivalry, and
+personal hostility.
+
+B. Character decision recall
+
+The system retrieved the differing circumstances behind Yangchun’s and
+Jwadan’s movements and decisions.
+
+C. Past-event recall
+
+The system retrieved the reason Yangchun was imprisoned and connected
+that event with his subsequent training period.
+
+D. Character-state recall
+
+The system retrieved Yangchun’s martial-arts progression, including his
+attempt to advance toward the “External (外)” stage, the development of
+internal energy pathways, and the unresolved issue of physical balance.
+
+E. Unsupported-event rejection
+
+When asked why Yangchun had defected to Baekje, the memory-based
+response stated that the supplied memory contained no such event.
+
+It did not fabricate a defection narrative to satisfy the question.
+
+F. Insufficient-information handling
+
+When asked which specific battle caused Jwadan to lose his arm, the
+response stated that the available memory confirmed the injury but did
+not contain the specific battle name or event.
+
+It therefore distinguished between:
+
+    "the injury is recorded"
+
+and
+
+    "the exact battle is not available in the supplied memory."
+
+============================================================ 5.
+CONTINUATION TEST
+============================================================
+
+The same memory material was also used in a narrative-continuation
+experiment.
+
+A subsequent episode was generated using the retained memory context
+rather than requiring the complete 50-episode source text to be supplied
+again.
+
+The continuation preserved major narrative context sufficiently for the
+internal experiment, including character relationships, current training
+state, and ongoing story direction.
+
+This result should be interpreted as a functional demonstration, not as
+a standardized literary-quality benchmark.
+
+============================================================ 6. OBSERVED
+MEMORY PIPELINE BEHAVIOR
+============================================================
+
+The experiment provided functional evidence for the following sequence:
+
+    Stored Narrative Information
+              |
+              v
+       Layered Memory
+     (STM / MTM / LTM)
+              |
+              v
+          Recall
+              |
+              v
+    Contextual Response /
+    Narrative Continuation
+
+Observed behaviors included:
+
+    - memory storage in multiple abstraction levels
+    - retrieval of earlier narrative facts
+    - retrieval of character relationships
+    - retrieval of character state/progression
+    - use of retrieved memory in a continuation task
+    - rejection of an unsupported event
+    - explicit recognition of insufficient information
+
+============================================================ 7.
+SOURCE-TEXT REDUCTION OBSERVATION
+============================================================
+
+In the historical 50-episode experiment, the original narrative
+contained approximately 194,956 characters including spaces.
+
+The recalled memory material used for the evaluated interaction was
+approximately 24,000 characters in aggregate.
+
+On a character-count basis, this corresponds to an approximate reduction
+of:
+
+    87.7%
+
+This is a character-count comparison, NOT a token-count measurement.
+
+It should not be interpreted as:
+
+    - a universal compression ratio
+    - a guaranteed context-window reduction
+    - a standardized benchmark result
+    - a guaranteed quality or accuracy improvement
+
+It is an observation from this specific internal narrative experiment.
+
+============================================================ 8. WHAT
+THIS EVIDENCE SUPPORTS
+============================================================
+
+This public evidence supports the narrower claim that, in the tested
+long-form narrative scenario, the MSMA Memory System was able to:
+
+    - retain layered narrative information outside the full source context
+    - retrieve relevant past information
+    - preserve useful relationship and state information
+    - support a subsequent narrative continuation
+    - decline to invent one unsupported narrative event
+    - identify one case where the available memory lacked sufficient detail
+
+The experiment provides functional evidence of memory storage,
+retrieval, and use.
+
+============================================================ 9. WHAT
+THIS EVIDENCE DOES NOT CLAIM
+============================================================
+
+This document does NOT claim that:
+
+    - MSMA eliminates hallucinations
+    - MSMA reduces hallucinations by a specific percentage
+    - the experiment is a standardized memory benchmark
+    - the observed 87.7% character reduction applies to all workloads
+    - every retrieved answer was perfectly accurate
+    - MSMA is production-ready
+    - the current implementation has been validated across all domains
+
+Some test responses contained interpretation beyond the minimal stored
+facts. For that reason, the evidence is presented as a functional memory
+experiment, not as proof of perfect factual recall.
+
+============================================================ 10.
+PUBLICATION NOTE
+============================================================
+
+This file intentionally omits:
+
+    - full novel source text
+    - internal memory implementation code
+    - detailed storage/index structures
+    - private local paths
+    - internal prompts
+    - unpublished architectural implementation details
+
+The purpose of this evidence is to demonstrate observable behavior while
+keeping implementation-specific details outside the public artifact.
+
+============================================================ CONCLUSION
+============================================================
+
+The long-context narrative experiment demonstrated that MSMA could use
+layered external memory to preserve and retrieve useful narrative
+information without repeatedly supplying the complete source text.
+
+Within this test, the system demonstrated:
+
+    Memory Storage
+          |
+          v
+    Memory Retrieval
+          |
+          v
+     Memory Usage
+          |
+          v
+    Context Continuity
+
+The strongest public evidence is not a claim of perfect memory.
+
+It is that the system retained useful information across a long
+narrative, recalled multiple categories of past context, used that
+context for continuation, and in tested cases could distinguish
+unsupported or missing information instead of always inventing an
+answer.
+
+End of Public Evidence

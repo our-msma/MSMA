@@ -1,0 +1,621 @@
+MSMA SELF EXPANSION — PUBLIC EXECUTION EVIDENCE
+============================================================
+
+Purpose
+-------
+This document is a sanitized public evidence extract based on an actual
+MSMA Self Expansion runtime execution log.
+
+It is intended to demonstrate observable Self Expansion behavior while
+omitting unnecessary internal implementation details, absolute paths,
+object addresses, unique runtime identifiers, full payloads, and other
+information not required to verify the execution result.
+
+TEST SCENARIO
+-------------
+User request:
+    "잔잔한 피아노 음악 만들어 줘"
+
+Required capability:
+    music_generation
+
+Observed high-level result:
+    MSMA prepared and applied a Self Expansion registration plan for a
+    MUSIC_GENERATION_AGENT, registered the agent in runtime-related
+    registries, registered its capability/interface/manifest, and then
+    executed the resulting music_generation capability successfully.
+
+============================================================
+VERIFIED HIGH-LEVEL FLOW
+============================================================
+
+Natural-Language Request
+        |
+        v
+Capability Requirement Detected
+        |
+        v
+Agent Runtime Route
+        |
+        v
+Self Expansion
+        |
+        v
+Registration Plan
+        |
+        v
+Controlled Apply
+        |
+        +--> Agent Registry
+        +--> Runtime Agent Registry
+        +--> Capability Registry
+        +--> Agent Memory Space
+        +--> Generated Agent
+        +--> Interface Registry
+        +--> Manifest Registry
+        |
+        v
+AUTO CREATION: CREATED
+        |
+        v
+Generated Agent Execution
+        |
+        v
+music_generation: COMPLETED
+        |
+        v
+Runtime Registry Presence Confirmed
+
+
+============================================================
+1. SELF EXPANSION REGISTRATION PLAN
+============================================================
+
+Observed state:
+
+    PLAN READY:
+        True
+
+    PLAN OPERATION COUNT:
+        7
+
+    execution mode:
+        CONTROLLED_APPLY
+
+    agent:
+        MUSIC_GENERATION_AGENT
+
+The registration plan contained seven required operations.
+
+Sanitized operation summary:
+
+    1. REGISTER_AGENT
+    2. REGISTER_RUNTIME_AGENT
+    3. REGISTER_CAPABILITY
+    4. CREATE_MEMORY_SPACE
+    5. CREATE_GENERATED_AGENT
+    6. REGISTER_INTERFACE
+    7. REGISTER_AGENT_MANIFEST
+
+The plan also contained rollback information for relevant registration
+operations.
+
+Interpretation:
+    Self Expansion did not merely return an agent name. It constructed
+    a structured registration plan covering the runtime components
+    required to introduce the new agent.
+
+
+============================================================
+2. AGENT REGISTRY
+============================================================
+
+Observed target:
+
+    AgentRegistry
+
+Observed agent:
+
+    MUSIC_GENERATION_AGENT
+
+Observed profile:
+
+    agent_type:
+        SPECIALIST
+
+    status:
+        READY
+
+Registry result included:
+
+    agent_id:
+        MUSIC_GENERATION_AGENT
+
+    status:
+        active
+
+Interpretation:
+    The generated agent was accepted into the Agent Registry and an
+    active registry representation was produced.
+
+
+============================================================
+3. RUNTIME AGENT REGISTRY
+============================================================
+
+Observed operation:
+
+    REGISTER_RUNTIME_AGENT
+
+Observed target:
+
+    RuntimeAgentRegistry
+
+Observed payload summary:
+
+    agent_id:
+        MUSIC_GENERATION_AGENT
+
+    entrypoint:
+        execute
+
+    capability:
+        music_generation
+
+    source:
+        SELF_EXPANSION
+
+    execution_mode:
+        CONTROLLED_APPLY
+
+    safe_mode:
+        True
+
+Observed registration result:
+
+    status:
+        REGISTERED
+
+    agent_id:
+        MUSIC_GENERATION_AGENT
+
+This is direct runtime evidence that the new agent was registered in the
+Runtime Agent Registry.
+
+
+============================================================
+4. CAPABILITY REGISTRATION
+============================================================
+
+Observed target:
+
+    CapabilityRegistry
+
+Observed capability:
+
+    music_generation
+
+Associated agent:
+
+    MUSIC_GENERATION_AGENT
+
+Observed registration flow:
+
+    REGISTER_CAPABILITY
+        |
+        v
+    Capability adapter resolved
+        |
+        v
+    Capability registered
+
+Interpretation:
+    The newly introduced agent was associated with the
+    music_generation capability through the runtime capability layer.
+
+
+============================================================
+5. AGENT MEMORY SPACE
+============================================================
+
+Observed operation:
+
+    CREATE_MEMORY_SPACE
+
+Observed configuration:
+
+    owner:
+        MUSIC_GENERATION_AGENT
+
+    space_type:
+        agent
+
+    isolated_space:
+        True
+
+The runtime recognized the requested operation as a supported
+create_memory_space action.
+
+Interpretation:
+    The Self Expansion plan included a dedicated agent memory-space
+    operation as part of the agent integration process.
+
+
+============================================================
+6. GENERATED AGENT CREATION
+============================================================
+
+Observed operation:
+
+    CREATE_GENERATED_AGENT
+
+Observed target:
+
+    GeneratedAgentCreator
+
+Observed agent:
+
+    MUSIC_GENERATION_AGENT
+
+Observed description:
+
+    Automatically generated agent for music_generation
+
+Observed execution mode:
+
+    CONTROLLED_APPLY
+
+Observed capability:
+
+    music_generation
+
+This confirms that the registration process contained and executed the
+generated-agent creation stage rather than only preparing registry
+metadata.
+
+
+============================================================
+7. INTERFACE REGISTRATION
+============================================================
+
+Observed target:
+
+    AgentInterfaceRegistry
+
+Observed agent:
+
+    MUSIC_GENERATION_AGENT
+
+Observed protocol:
+
+    MSMA_AGENT_V1
+
+Observed entrypoint:
+
+    execute
+
+Observed methods included:
+
+    execute
+    music_generation
+
+Observed result:
+
+    status:
+        REGISTERED
+
+    agent_id:
+        MUSIC_GENERATION_AGENT
+
+Interpretation:
+    The generated agent received a runtime-facing interface definition
+    and that interface was successfully registered.
+
+
+============================================================
+8. MANIFEST REGISTRATION
+============================================================
+
+Observed target:
+
+    AgentManifestRegistry
+
+Observed agent:
+
+    MUSIC_GENERATION_AGENT
+
+Observed result:
+
+    status:
+        REGISTERED
+
+    agent_id:
+        MUSIC_GENERATION_AGENT
+
+Interpretation:
+    The agent manifest was also accepted into the corresponding
+    registry.
+
+
+============================================================
+9. AUTO CREATION RESULT
+============================================================
+
+Observed result:
+
+    status:
+        CREATED
+
+    agent:
+        MUSIC_GENERATION_AGENT
+
+    entrypoint:
+        execute
+
+    capability:
+        music_generation
+
+    source:
+        SELF_EXPANSION
+
+    execution_mode:
+        CONTROLLED_APPLY
+
+This is the central Self Expansion result.
+
+The runtime explicitly reported the agent auto-creation result as
+CREATED.
+
+
+============================================================
+10. IMMEDIATE EXECUTION OF THE CREATED AGENT
+============================================================
+
+After creation, execution continued through the Agent Executor.
+
+Observed agent:
+
+    MUSIC_GENERATION_AGENT
+
+Observed capability request:
+
+    music_generation
+
+Observed capability implementation result:
+
+    status:
+        COMPLETED
+
+    capability:
+        music_generation
+
+Observed Agent Runtime result:
+
+    status:
+        EXECUTED
+
+The nested capability result also reported:
+
+    status:
+        COMPLETED
+
+Interpretation:
+    The evidence does not stop at creation/registration. The newly
+    introduced agent entered the execution path and its associated
+    capability completed successfully.
+
+
+============================================================
+11. MONITORING RESULT
+============================================================
+
+Observed monitoring statistics:
+
+    total_execution:
+        1
+
+    success:
+        1
+
+    failed:
+        0
+
+    failure_rate:
+        0.0
+
+Observed latest monitoring status:
+
+    SUCCESS
+
+Interpretation:
+    The monitored runtime execution corresponding to this request was
+    recorded as successful.
+
+
+============================================================
+12. POST-EXECUTION RUNTIME REGISTRY CHECK
+============================================================
+
+After execution, the Runtime Agent Registry was printed again.
+
+Observed registry entry:
+
+    MUSIC_GENERATION_AGENT
+
+        entrypoint:
+            execute
+
+        capability:
+            music_generation
+
+        source:
+            SELF_EXPANSION
+
+        execution_mode:
+            CONTROLLED_APPLY
+
+This is particularly useful public evidence because it verifies that
+MUSIC_GENERATION_AGENT was present in the runtime registry after the
+execution sequence.
+
+
+============================================================
+END-TO-END VERIFICATION
+============================================================
+
+User Request
+    |
+    v
+music_generation Capability Required
+    |
+    v
+Agent Runtime
+    |
+    v
+Self Expansion Registration Plan
+    |
+    | 7 operations
+    v
+Controlled Apply
+    |
+    +--> Agent registration
+    +--> Runtime-agent registration
+    +--> Capability registration
+    +--> Memory-space operation
+    +--> Generated-agent creation
+    +--> Interface registration
+    +--> Manifest registration
+    |
+    v
+AUTO CREATION RESULT = CREATED
+    |
+    v
+Agent Executor
+    |
+    v
+music_generation
+    |
+    v
+Capability Status = COMPLETED
+    |
+    v
+Agent Runtime Status = EXECUTED
+    |
+    v
+Monitoring Status = SUCCESS
+    |
+    v
+Post-Execution Runtime Registry Check
+    |
+    v
+MUSIC_GENERATION_AGENT PRESENT
+
+
+============================================================
+VERIFICATION CHECKLIST
+============================================================
+
+[PASS] Self Expansion registration plan was READY
+[PASS] Registration plan contained 7 operations
+[PASS] Controlled Apply mode was used
+[PASS] Agent Registry operation was executed
+[PASS] Runtime Agent Registry returned REGISTERED
+[PASS] music_generation capability registration was processed
+[PASS] Agent memory-space creation was processed
+[PASS] Generated-agent creation stage was executed
+[PASS] Agent interface returned REGISTERED
+[PASS] Agent manifest returned REGISTERED
+[PASS] Auto-creation result returned CREATED
+[PASS] Created agent entered Agent Executor
+[PASS] music_generation returned COMPLETED
+[PASS] Agent Runtime returned EXECUTED
+[PASS] Monitoring recorded SUCCESS
+[PASS] Runtime Registry still contained MUSIC_GENERATION_AGENT after execution
+
+
+FINAL VERIFIED RESULT
+---------------------
+
+    MSMA SELF EXPANSION EXECUTION VERIFIED
+
+    Agent:
+        MUSIC_GENERATION_AGENT
+
+    Capability:
+        music_generation
+
+    Auto-Creation:
+        CREATED
+
+    Runtime Registration:
+        REGISTERED
+
+    Capability Execution:
+        COMPLETED
+
+    Agent Runtime:
+        EXECUTED
+
+    Monitoring:
+        SUCCESS
+
+    Post-Execution Registry:
+        PRESENT
+
+
+============================================================
+PUBLIC DISCLOSURE / SANITIZATION NOTE
+============================================================
+
+This document intentionally omits or abstracts:
+
+- local username and machine name
+- absolute filesystem paths
+- process identifiers
+- Python object memory addresses
+- registry object addresses
+- unique UUID-style mission/route/trace/manifest/capability IDs
+- complete internal payload structures
+- detailed agent specifications
+- full runtime contracts
+- internal adapter implementation
+- internal orchestration logic
+- detailed rollback implementation
+- timestamps not required for verification
+- duplicated debug output
+
+The purpose is to expose enough observable evidence to verify the
+Self Expansion result without unnecessarily disclosing MSMA's internal
+implementation details.
+
+
+============================================================
+EVIDENCE SCOPE
+============================================================
+
+What this evidence supports:
+
+    - A Self Expansion registration plan was produced.
+    - The plan contained concrete runtime integration operations.
+    - MUSIC_GENERATION_AGENT was registered.
+    - music_generation was associated with the agent.
+    - Interface and manifest registration succeeded.
+    - Auto creation reported CREATED.
+    - The resulting agent entered execution.
+    - music_generation completed.
+    - Monitoring recorded the execution as successful.
+    - The agent was visible in the Runtime Agent Registry after execution.
+
+What this public extract intentionally does NOT disclose:
+
+    - exact source-code implementation
+    - internal algorithms
+    - full contract schemas
+    - complete agent-generation logic
+    - complete registry implementation
+    - proprietary orchestration details
+
+
+============================================================
+END OF PUBLIC EVIDENCE
+============================================================

@@ -1,0 +1,326 @@
+MSMA TOOL SYSTEM — PUBLIC EXECUTION EVIDENCE
+============================================================
+
+Purpose
+-------
+This document is a sanitized public evidence extract from an actual MSMA runtime execution log.
+
+It demonstrates observable runtime behavior while intentionally omitting internal implementation details, full payloads, object addresses, identifiers, source paths, prompt construction, and orchestration internals.
+
+TEST SCENARIO
+-------------
+User Request:
+    "오픈 ai 최신 뉴스 알려줘"
+
+Expected capability:
+    External information retrieval / web search
+
+Observed result:
+    Tool execution completed successfully, and the structured result was handed to the response-generation stage.
+
+============================================================
+VERIFIED EXECUTION PATH
+============================================================
+
+User Request
+    |
+    v
+Intent Analysis
+    |
+    v
+Mission Classification: RESEARCH
+    |
+    v
+Capability Resolution: web_search
+    |
+    v
+Execution Target: TOOL_SYSTEM
+    |
+    v
+Tool Execution
+    |
+    v
+COMPLETED / success=True
+    |
+    v
+Response Generation
+    |
+    v
+Local Model Execution
+    |
+    v
+COMPLETED / success=True
+
+
+============================================================
+1. TOOL SYSTEM AVAILABILITY
+============================================================
+
+Sanitized boot evidence:
+
+[ADAPTER LOADER]
+    mock
+    web_search
+
+[TOOL LOADER]
+    github
+    system_info
+    web_search
+
+Runtime components initialized:
+    ToolOrchestrator
+    ToolRegistry
+    ToolMemory
+
+Runtime state:
+    MSMA RUNTIME BOOT COMPLETE
+
+Interpretation:
+    Tool-related components were available in the runtime before the
+    user request was processed.
+
+
+============================================================
+2. USER REQUEST
+============================================================
+
+Observed runtime input:
+
+    오픈 ai 최신 뉴스 알려줘
+
+The request entered the normal intent-analysis path.
+
+
+============================================================
+3. INTENT / CAPABILITY RESOLUTION
+============================================================
+
+Observed classification:
+
+    intent_type:
+        RESEARCH
+
+    mission_type:
+        RESEARCH
+
+    capability:
+        web_search
+
+    target:
+        TOOL
+
+    confidence:
+        0.95
+
+    execution_target:
+        TOOL_SYSTEM
+
+This provides evidence that the runtime recognized the need for an
+external capability and routed the request to the Tool System.
+
+
+============================================================
+4. MISSION CONSTRUCTION
+============================================================
+
+Sanitized mission evidence:
+
+    source:
+        USER
+
+    mission_type:
+        RESEARCH
+
+    query:
+        "오픈 ai 최신 뉴스 알려줘"
+
+    resolved capability:
+        web_search
+
+    resolved execution target:
+        TOOL_SYSTEM
+
+Internal identifiers and implementation-specific metadata are omitted.
+
+
+============================================================
+5. TOOL EXECUTION
+============================================================
+
+Observed tool-result metadata:
+
+    tool:
+        web_search
+
+    source:
+        web
+
+    provider:
+        ddgs
+
+    search_type:
+        news
+
+    status:
+        COMPLETED
+
+    success:
+        True
+
+    result_count:
+        5
+
+This is the core execution evidence: the selected tool returned a
+structured result and reported successful completion.
+
+
+============================================================
+6. RESULT HANDOFF
+============================================================
+
+Observed boundary behavior:
+
+    TOOL_SYSTEM
+        |
+        | structured result
+        v
+    RESPONSE GENERATION
+
+The completed tool result was supplied to the response-generation stage.
+
+The complete prompt, raw search-result bodies, and internal request objects are intentionally omitted from this public evidence file.
+
+
+============================================================
+7. MODEL SELECTION
+============================================================
+
+Observed model selection:
+
+    model:
+        llama3:latest
+
+    provider:
+        Ollama
+
+    capabilities:
+        text_generation
+        chat
+
+The runtime continued from tool execution to response generation through the configured local model layer.
+
+
+============================================================
+8. LOCAL MODEL COMPLETION
+============================================================
+
+Observed execution state:
+
+    request model:
+        llama3:latest
+
+    provider:
+        Ollama
+
+    done:
+        True
+
+    completion reason:
+        stop
+
+Provider result:
+
+    status:
+        COMPLETED
+
+    success:
+        True
+
+
+============================================================
+9. END-TO-END VERIFICATION
+============================================================
+
+Natural-Language Request
+        |
+        v
+Intent / Mission Analysis
+        |
+        v
+Capability = web_search
+        |
+        v
+Target = TOOL_SYSTEM
+        |
+        v
+External Tool Execution
+        |
+        v
+COMPLETED / success=True
+        |
+        v
+Structured Result Handoff
+        |
+        v
+Local Model Selection
+        |
+        v
+Ollama / llama3:latest
+        |
+        v
+Response Generation
+        |
+        v
+COMPLETED / success=True
+
+
+============================================================
+VERIFICATION CHECKLIST
+============================================================
+
+[PASS] MSMA runtime boot completed
+[PASS] Tool components were loaded
+[PASS] Natural-language request entered intent analysis
+[PASS] Request was classified as RESEARCH
+[PASS] web_search capability was resolved
+[PASS] Execution target was TOOL_SYSTEM
+[PASS] Search tool executed
+[PASS] Structured results were returned
+[PASS] Tool status was COMPLETED
+[PASS] Tool success was True
+[PASS] Tool result was handed to response generation
+[PASS] Local model was selected
+[PASS] Local model execution completed
+[PASS] Provider status was COMPLETED
+[PASS] End-to-end request path completed successfully
+
+
+FINAL RESULT
+------------
+
+    MSMA TOOL SYSTEM EXECUTION VERIFIED
+
+
+============================================================
+PUBLIC DISCLOSURE NOTE
+============================================================
+
+This evidence file is intentionally sanitized.
+
+Removed or abstracted information includes:
+- absolute local filesystem paths
+- runtime object memory addresses
+- unique request/runtime identifiers
+- complete internal request objects
+- complete model prompts
+- detailed runtime contracts
+- internal orchestration implementation
+- duplicated debug payloads
+- raw third-party result bodies
+- implementation-specific metadata
+
+The purpose is to preserve observable execution evidence without publishing unnecessary internal architecture or implementation detail.
+
+============================================================
+END OF PUBLIC EVIDENCE
+============================================================

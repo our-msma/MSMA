@@ -20,10 +20,10 @@ Runtime = Orchestration
 
 **Current Development Stage: Pre-MVP**
 
-The core runtime architecture has been implemented, with a long-context
-evaluation of the Memory System and working E2E demonstrations for key
-capabilities including the Tool System, Agent Runtime, Self Expansion,
-and Controlled Self Improvement.
+The core runtime architecture has been implemented, with documented
+long-context evaluation evidence for the Memory System and working E2E
+demonstrations for key capabilities including the Tool System, Agent Runtime,
+Self Expansion, and Controlled Self Improvement.
 
 Not every runtime component has been integrated or validated to the same
 level, and MSMA is not yet a production-ready product.
@@ -93,8 +93,8 @@ coordinates system components.
                                    Self Expansion
 ```
 
-Monitoring and diagnosis can observe runtime execution and connect to
-controlled improvement pathways.
+Monitoring and diagnosis are designed to observe runtime execution and
+connect runtime results to controlled improvement pathways.
 
 ``` text
 Runtime Execution

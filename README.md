@@ -839,44 +839,23 @@ protection is automatically applied across every runtime execution path.
 
 MSMA distinguishes three different states:
 
-``` text
+```text
 Implemented
 ≠
 E2E Demonstrated
 ≠
-Public Evidence Prepared
+Publicly Documented
 ```
 
-  ----------------------------------------------------------------------------
-  Capability       Implemented      E2E Demonstrated  Evidence    UI Demo
-                                                      Status      
-  ------------- ------------------ ------------------ ----------- ------------
-  Memory System        Yes               Yes\*        Preparing   Historical
-                                                                  test
-                                                                  material
-                                                                  available
-
-  Tool System          Yes                Yes         Available   Yes
-
-  Agent Runtime        Yes                Yes         Available   Included in
-                                                                  Self
-                                                                  Expansion
-                                                                  demo
-
-  Self                 Yes                Yes         Available   Yes
-  Expansion                                                       
-
-  Self                 Yes                Yes         Available   Yes
-  Improvement                                                     
-
-  Monitoring           Yes              Partial       Available   Included in
-                                                                  runtime
-                                                                  demos
-
-  Privacy /          Yes\*\*           To verify      Not         Not prepared
-  Data                                                prepared    
-  Protection                                                      
-  ----------------------------------------------------------------------------
+| Capability | Implemented | E2E Demonstrated | Evidence | UI Demo Status |
+|---|---|---|---|---|
+| Memory System | Yes | Yes* | Available | Historical test evidence available |
+| Tool System | Yes | Yes | Available | Yes |
+| Agent Runtime | Yes | Yes | Available | Included in Self Expansion demo |
+| Self Expansion | Yes | Yes | Available | Yes |
+| Self Improvement | Yes | Yes | Available | Yes |
+| Monitoring | Yes | Partial | Available | Included in runtime demos |
+| Privacy / Data Protection | Yes** | To verify | Not prepared | Not prepared |
 
 \* The Memory System was evaluated through an internal long-context
 narrative experiment, not a standardized benchmark.\
@@ -908,11 +887,11 @@ Public evidence: [MSMA Memory System — Public Evidence](evidence/MSMA_Memory_P
 
 The public evidence summarizes the long-context narrative experiment, recall behavior, unsupported-event rejection, insufficient-information handling, and the observed character-count reduction.
 
-  Metric                                              Result
-  ------------------------------------ ---------------------
-  Original narrative                      194,956 characters
-  MSMA recall context                    \~24,000 characters
-  Recall-context character reduction                 \~87.7%
+| Metric | Result |
+|---|---:|
+| Original narrative | 194,956 characters |
+| MSMA recall context | ~24,000 characters |
+| Recall-context character reduction | ~87.7% |
 
 **This is a character-context reduction measurement, not a
 token-reduction rate.**
